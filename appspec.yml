@@ -1,0 +1,20 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:us-east-1:992382573619:task-definition/my-flask-task-def:1"
+        LoadBalancerInfo:
+          ContainerName: "flask"
+          ContainerPort: 80
+# Optional properties
+        PlatformVersion: "LATEST"
+        NetworkConfiguration:
+          AwsvpcConfiguration:
+            Subnets: ["subnet-04dc019d5559eeec4","subnet-0ca375f150450bc15"]
+            SecurityGroups: ["sg-0b89d71f1845ee2b9"]
+            AssignPublicIp: "ENABLED"
+        CapacityProviderStrategy:
+          - Base: 0
+            CapacityProvider: "FARGATE"
+            Weight: 1
