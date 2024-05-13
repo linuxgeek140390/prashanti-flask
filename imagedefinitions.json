@@ -1,6 +1,6 @@
 [
   {
-    "name": "my-flask-app",
+    "name": "flask",
     "imageUri": "992382573619.dkr.ecr.us-east-1.amazonaws.com/my-flask-app:latest"
   }
 ]
